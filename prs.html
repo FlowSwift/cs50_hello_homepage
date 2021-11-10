@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+
+        <script>
+            function header_listen()
+            {
+                let pic = document.querySelector(".animate")
+                let jumbo = document.querySelector(".jumbotron")
+                jumbo.addEventListener("mouseenter", function(){
+                        animate_on(pic);
+                    });
+                jumbo.addEventListener("mouseleave", function(){
+                        animate_off(pic);
+                    });
+            }
+            var myInterval
+            function animate_on(pic)
+            {
+                let asc = true
+                let i = 1
+                hover = true;
+                pic.style.opacity = "1";
+                myInterval = setInterval(function() {
+                    if (i == 1){
+                        asc = true;
+                    }
+                    else if (i == 3){
+                        asc = false;
+                    }
+                    pic.src = `animation/${i}.png`;
+                    if (asc){
+                        i++;
+                    }
+                    else{
+                        i--;
+                    }
+                }, 200);
+            }
+
+            function animate_off(pic)
+            {
+                clearInterval(myInterval);
+                hover = false;
+                pic.style.opacity = "0";
+            }
+            document.addEventListener('DOMContentLoaded', header_listen);
+
+        </script>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <header>
+            <a class="homepage_link" href="index.html">
+                <div class ="jumbotron jumbotron-fluid">
+                    <h1>Hello, Homepage</h1>
+                    <p>CS50X Project</p>
+                    <img class="animate" src="animation/1.png"alt="animations">
+                </div>
+            </a>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="carousel-item active">
+                              <img class="d-block w-100" src="https://cdn.shopify.com/s/files/1/0255/8659/7968/products/IMG_0252_2048x.jpg?v=1629217995" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="https://cdn.shopify.com/s/files/1/0255/8659/7968/products/IMG_9450_688a2716-ab3a-4f8c-8e06-ff7088f0905a_2048x.jpg?v=1625244275" alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100" src="https://cdn.shopify.com/s/files/1/0255/8659/7968/products/IMG_9492_720x.jpg?v=1624812277" alt="Third slide">
+                            </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">PRS Guitars</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Guitar Manufacturer</h6>
+                            <p class="card-text">Paul Reed Smith Guitars, also known as PRS Guitars, is an American guitar and amplifier manufacturer located in Stevensville, Maryland. The company was founded in 1985 in Annapolis, Maryland by Paul Reed Smith. Products manufactured by PRS include electric & acoustic guitars, basses, and amplifiers.</p>
+                            <a href="#!" class="card-link">Card link</a>
+                            <a href="#!" class="card-link">Another link</a>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <img class="card-img" src="https://cdn.mos.cms.futurecdn.net/N4HLw4JxQjHqNwEeYE6ofA-1200-80.jpg" alt="Card image cap">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title">Paul Reed Smith</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Guitar Manufacturer</h6>
+                            <p class="card-text">Paul Reed Smith Guitars, also known as PRS Guitars, is an American guitar and amplifier manufacturer located in Stevensville, Maryland. The company was founded in 1985 in Annapolis, Maryland by Paul Reed Smith. Products manufactured by PRS include electric & acoustic guitars, basses, and amplifiers.</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                            <img alt="paul pic" class="img-fluid" src="https://guitar.com/wp-content/uploads/2019/12/future-PRS-Port01@1400x1050.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="footer-copyright text-center py-3">© Made By Flowy
+                <a href="https://github.com/FlowSwift"> github</a>
+            </div>
+        </footer>
+    </body>
+</html>

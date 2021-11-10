@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+
+        <script>
+            function header_listen()
+            {
+                let pic = document.querySelector(".animate")
+                let jumbo = document.querySelector(".jumbotron")
+                jumbo.addEventListener("mouseenter", function(){
+                        animate_on(pic);
+                    });
+
+                jumbo.addEventListener("mouseleave", function(){
+                        animate_off(pic);
+                    });
+            }
+            var myInterval
+            function animate_on(pic)
+            {
+                let asc = true
+                let i = 1
+                pic.style.opacity = "1";
+                myInterval = setInterval(function() {
+                    if (i == 1){
+                        asc = true;
+                    }
+                    else if (i == 3){
+                        asc = false;
+                    }
+                    pic.src = `animation/${i}.png`;
+                    if (asc){
+                        i++;
+                    }
+                    else{
+                        i--;
+                    }
+                }, 200);
+            }
+
+            function animate_off(pic)
+            {
+                clearInterval(myInterval);
+                hover = false;
+                pic.style.opacity = "0";
+            }
+            document.addEventListener('DOMContentLoaded', header_listen);
+
+        </script>
+    </head>
+    <body>
+        <header>
+            <a class="homepage_link" href="index.html">
+                <div class ="jumbotron jumbotron-fluid">
+                    <h1>Hello, Homepage</h1>
+                    <p>CS50X Project</p>
+                    <img class="animate" src="animation/1.png"alt="animations">
+                </div>
+            </a>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                          <img src="https://cdn.pixabay.com/photo/2019/02/24/15/47/thumb-4017874_960_720.jpg" alt="thumbs down">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer">
+            <div class="footer-copyright text-center py-3">© Made By Flowy
+                <a href="https://github.com/FlowSwift"> github</a>
+            </div>
+        </footer>
+    </body>
+</html>
